@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: M510A-3140101
- * Date: 2018/10/19
- * Time: 下午 04:45
- */
+
 @extends('layouts.app')
 
 @section('content')
@@ -64,7 +58,19 @@
                                 <div>{{ $task->name }}</div>
                             </td>
 
-                            
+                            <td>
+
+                                <!-- 刪除按鈕 -->
+
+                                <form action="/task/{{ $task->id }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+
+                                    <button>刪除任務</button>
+                                </form>
+
+
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

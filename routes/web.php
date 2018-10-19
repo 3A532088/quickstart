@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Task;
+use Illuminate\Http\Request;
+
 
 Route::get('/', function () {
     $tasks = Task::orderBy('created_at', 'asc')->get();
@@ -41,6 +44,8 @@ Route::post('/task', function (Request $request) {
 
 // 刪除任務
 Route::delete('/task/{task}', function (Task $task) {
-    //
+    $task->delete();
+    return redirect('/');
+
 });
 

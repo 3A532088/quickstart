@@ -28,6 +28,11 @@ Route::post('/task', function (Request $request) {
     }
 
     // 建立該任務...
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
 });
 
 // 刪除任務
